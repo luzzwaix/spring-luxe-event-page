@@ -189,6 +189,44 @@ export default function App() {
           TonyBar Karaoke & Lounge • Spring 2026
         </p>
       </footer>
+      <div style={{ position: 'fixed', top: '20px', right: '20px', zIndex: 1000 }}>
+  <iframe 
+    id="youtube-player"
+    width="0" 
+    height="0" 
+    src="https://www.youtube.com/embed/wui-1EYGuT4?enablejsapi=1&autoplay=0&loop=1&playlist=wui-1EYGuT4" 
+    frameBorder="0" 
+    allow="autoplay">
+  </iframe>
+  
+  <button 
+    onClick={() => {
+      const iframe = document.getElementById('youtube-player');
+      if (iframe.src.includes('autoplay=0')) {
+        iframe.src = iframe.src.replace('autoplay=0', 'autoplay=1');
+      } else {
+        iframe.src = iframe.src.replace('autoplay=1', 'autoplay=0');
+      }
+    }}
+    style={{
+      background: 'rgba(212, 175, 55, 0.2)',
+      border: '1px solid #D4AF37',
+      color: '#D4AF37',
+      borderRadius: '50%',
+      width: '45px',
+      height: '45px',
+      fontSize: '20px',
+      backdropFilter: 'blur(5px)',
+      cursor: 'pointer',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      boxShadow: '0 4px 15px rgba(0,0,0,0.3)'
+    }}
+  >
+    ✨
+  </button>
+</div>
     </div>
   );
 }
