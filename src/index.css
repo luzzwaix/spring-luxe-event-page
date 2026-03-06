@@ -90,3 +90,16 @@
     100% { transform: translateX(-50%); }
   }
 }
+/* Полное скрытие любых элементов Blink */
+[class*="blink"], 
+[id*="blink"], 
+a[href*="blink.ai"], 
+.blink-watermark,
+#blink-badge {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  height: 0 !important;
+  width: 0 !important;
+}
