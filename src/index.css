@@ -25,7 +25,7 @@
     --border: 0 0% 15%;
     --input: 0 0% 15%;
     --ring: 45 60% 53%;
-    --radius: 0rem;
+    --radius: 0.5rem;
 
     --font-sans: 'Inter', sans-serif;
     --font-serif: 'Playfair Display', serif;
@@ -38,35 +38,23 @@
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+
   body {
     @apply bg-background text-foreground antialiased;
     font-family: var(--font-sans);
     letter-spacing: -0.01em;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-serif);
-  }
-
-  @keyframes fadeInSlide {
-    from {
-      transform: translateY(20px);
-      opacity: 0;
-      filter: blur(4px);
-    }
-    to {
-      transform: translateY(0);
-      opacity: 1;
-      filter: blur(0);
-    }
-  }
-
-  .animate-on-scroll {
-    opacity: 0;
-  }
-
-  .animate-in {
-    animation: fadeInSlide 0.8s cubic-bezier(0.2, 0.0, 0.2, 1) both;
+    text-wrap: balance;
   }
 
   .glass {
@@ -77,16 +65,31 @@
     @apply bg-clip-text text-transparent bg-gradient-to-r from-[#D4AF37] via-[#F5D76E] to-[#B8860B];
   }
 
-  .logo-marquee {
-    display: flex;
-    gap: 3rem;
-    animation: marquee 30s linear infinite;
-    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  /* Custom AOS animation overrides for smoother feel */
+  [data-aos] {
+    transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1) !important;
   }
 
-  @keyframes marquee {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
+  /* Touch-friendly button states */
+  @media (hover: none) {
+    button, a {
+      -webkit-tap-highlight-color: transparent;
+    }
+  }
+
+  /* Improved touch targets for mobile */
+  @media (max-width: 640px) {
+    button, 
+    [role="button"],
+    a {
+      min-height: 44px;
+    }
+  }
+
+  /* Safe area padding for notched devices */
+  @supports (padding-bottom: env(safe-area-inset-bottom)) {
+    footer {
+      padding-bottom: calc(2rem + env(safe-area-inset-bottom));
+    }
   }
 }
