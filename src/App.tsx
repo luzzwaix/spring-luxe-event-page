@@ -18,7 +18,7 @@ export default function App() {
     transition: { staggerChildren: 0.2 }
   };
 
-  const WHATSAPP_LINK = "https://wa.me/77012345678?text=Я%20приду%20на%20TonyBar!";
+  const WHATSAPP_LINK = "https://chat.whatsapp.com/LyLYSs5c9ch4iZMw2L743A?mode=gi_t";
 
   return (
     <div className="min-h-screen bg-background selection:bg-primary selection:text-primary-foreground">
@@ -90,7 +90,7 @@ export default function App() {
           </div>
           
           <motion.a
-            href="https://maps.google.com/?q=Almaty+Navoi+208+TonyBar"
+            href="https://2gis.kz/almaty/geo/9430047375045163/76.884695,43.207313"
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.05, letterSpacing: "0.4em" }}
