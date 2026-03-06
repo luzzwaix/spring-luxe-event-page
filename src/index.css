@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@100..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 0%;
+    --foreground: 240 5% 96%;
+    --card: 0 0% 3%;
+    --card-foreground: 240 5% 96%;
+    --popover: 0 0% 3%;
+    --popover-foreground: 240 5% 96%;
+    --primary: 45 60% 53%;
+    --primary-foreground: 0 0% 0%;
+    --secondary: 140 52% 55%;
+    --secondary-foreground: 240 5% 96%;
+    --muted: 0 0% 10%;
+    --muted-foreground: 240 5% 70%;
+    --accent: 45 60% 65%;
+    --accent-foreground: 240 5% 96%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 240 5% 96%;
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
+    --ring: 45 60% 53%;
+    --radius: 0rem;
+
+    --font-sans: 'Inter', sans-serif;
+    --font-serif: 'Playfair Display', serif;
+
+    --gradient-gold: linear-gradient(135deg, #D4AF37 0%, #F5D76E 50%, #B8860B 100%);
+    --shadow-elegant: 0 10px 30px -10px hsla(45, 60%, 53%, 0.3);
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-sans);
+    letter-spacing: -0.01em;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+  }
+
+  @keyframes fadeInSlide {
+    from {
+      transform: translateY(20px);
+      opacity: 0;
+      filter: blur(4px);
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+      filter: blur(0);
+    }
+  }
+
+  .animate-on-scroll {
+    opacity: 0;
+  }
+
+  .animate-in {
+    animation: fadeInSlide 0.8s cubic-bezier(0.2, 0.0, 0.2, 1) both;
+  }
+
+  .glass {
+    @apply backdrop-blur-md bg-white/5 border border-white/10;
+  }
+
+  .gold-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#D4AF37] via-[#F5D76E] to-[#B8860B];
+  }
+
+  .logo-marquee {
+    display: flex;
+    gap: 3rem;
+    animation: marquee 30s linear infinite;
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  }
+
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+}
